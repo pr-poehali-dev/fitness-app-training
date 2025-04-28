@@ -10,6 +10,7 @@ import ReviewsSection from "@/components/ReviewsSection";
 import ContactSection from "@/components/ContactSection";
 import AuthorSection from "@/components/AuthorSection";
 import HowItWorks from "@/components/HowItWorks";
+import ComparisonSection from "@/components/ComparisonSection";
 
 const Index = () => {
   return (
@@ -19,6 +20,7 @@ const Index = () => {
         <HeroSection />
         <ProblemsSection />
         <AboutMethod />
+        <ComparisonSection />
         <HowItWorks />
         <ProgramsSection />
         <ReviewsSection />
