@@ -1,87 +1,55 @@
-import { useState } from "react";
+
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const Header = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm">
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <div className="font-bold text-2xl text-primary">ФитЗдрав</div>
+    <header 
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled 
+          ? "bg-white/90 backdrop-blur-sm shadow-md py-3" 
+          : "bg-transparent py-5"
+      }`}
+    >
+      <div className="container mx-auto px-4 flex justify-between items-center">
+        <div className="flex items-center gap-2">
+          <span className="text-2xl font-bold text-primary">Ось Жизни</span>
+        </div>
         
-        {/* Desktop Menu */}
-        <nav className="hidden md:flex space-x-8">
-          <a href="#about" className="font-medium hover:text-primary transition-colors">О тренажере</a>
-          <a href="#benefits" className="font-medium hover:text-primary transition-colors">Преимущества</a>
-          <a href="#programs" className="font-medium hover:text-primary transition-colors">Программы</a>
-          <a href="#pricing" className="font-medium hover:text-primary transition-colors">Цены</a>
-          <a href="#reviews" className="font-medium hover:text-primary transition-colors">Отзывы</a>
+        <nav className="hidden md:flex items-center gap-8">
+          <a href="#benefits" className="text-sm hover:text-primary transition-colors">Преимущества</a>
+          <a href="#method" className="text-sm hover:text-primary transition-colors">Метод</a>
+          <a href="#programs" className="text-sm hover:text-primary transition-colors">Программы</a>
+          <a href="#reviews" className="text-sm hover:text-primary transition-colors">Отзывы</a>
+          <a href="#pricing" className="text-sm hover:text-primary transition-colors">Цены</a>
         </nav>
-        
-        <Button className="hidden md:block">Заказать</Button>
-        
-        {/* Mobile Menu Button */}
-        <button 
-          className="md:hidden text-gray-600" 
-          onClick={toggleMobileMenu}
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+
+        <div className="flex items-center gap-4">
+          <Button 
+            variant="outline" 
+            size="sm"
+            className="hidden md:inline-flex"
+          >
+            О методике
+          </Button>
+          <Button 
+            size="sm"
+            className="hover-scale"
+          >
+            Записаться
+          </Button>
+        </div>
       </div>
-      
-      {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <nav className="md:hidden py-4 bg-white/95 shadow-lg">
-          <div className="container mx-auto px-4 flex flex-col space-y-4">
-            <a 
-              href="#about" 
-              className="font-medium py-2 hover:text-primary transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              О тренажере
-            </a>
-            <a 
-              href="#benefits" 
-              className="font-medium py-2 hover:text-primary transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Преимущества
-            </a>
-            <a 
-              href="#programs" 
-              className="font-medium py-2 hover:text-primary transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Программы
-            </a>
-            <a 
-              href="#pricing" 
-              className="font-medium py-2 hover:text-primary transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Цены
-            </a>
-            <a 
-              href="#reviews" 
-              className="font-medium py-2 hover:text-primary transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Отзывы
-            </a>
-            <Button 
-              className="w-full mt-4"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Заказать
-            </Button>
-          </div>
-        </nav>
-      )}
     </header>
   );
 };

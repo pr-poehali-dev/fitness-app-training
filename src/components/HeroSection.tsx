@@ -1,50 +1,55 @@
+
 import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
   return (
-    <section className="pt-28 pb-16 bg-gradient-to-b from-accent to-white">
+    <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-b from-accent/30 to-background">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center">
-          <div className="md:w-1/2 mb-10 md:mb-0">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              Универсальный тренажер для всей семьи
+        <div className="flex flex-col md:flex-row items-center gap-12">
+          <div className="w-full md:w-1/2 space-y-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+              Природное омоложение <span className="text-primary">суставов</span>
             </h1>
-            <p className="text-lg md:text-xl mb-8 text-gray-700 max-w-lg">
-              Восстановите здоровье и улучшите физическую форму с помощью наших оздоровительных программ и уникального тренажера
+            
+            <p className="text-xl md:text-2xl font-light leading-relaxed">
+              Здоровый позвоночник и крепкие кости без лекарств!
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="text-base font-medium">
-                Купить тренажер
-              </Button>
-              <Button size="lg" variant="outline" className="text-base font-medium">
-                Записаться на курс
-              </Button>
+            
+            <div className="bg-white/80 backdrop-blur-sm rounded-lg p-5 shadow-lg border border-accent/50 mt-6">
+              <p className="text-base md:text-lg font-medium">
+                Остеопороз, сколиоз, боли в суставах больше не проблема. Убедитесь в этом сами, посетив одно занятие адаптивно-функциональной гимнастики на авторском тренажёре «Ось Жизни»
+              </p>
             </div>
-            <div className="mt-8 flex items-center">
-              <div className="flex -space-x-2">
-                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=faces" className="w-10 h-10 rounded-full border-2 border-white" alt="Customer" />
-                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=faces" className="w-10 h-10 rounded-full border-2 border-white" alt="Customer" />
-                <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=150&h=150&fit=crop&crop=faces" className="w-10 h-10 rounded-full border-2 border-white" alt="Customer" />
-              </div>
-              <div className="ml-4">
-                <p className="text-sm font-medium">500+ довольных клиентов</p>
-                <div className="flex items-center">
-                  <span className="text-yellow-500">★★★★★</span>
-                  <span className="ml-1 text-sm font-medium">4.9/5</span>
-                </div>
-              </div>
+            
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <Button size="lg" className="hover-scale">
+                Записаться на пробное занятие
+              </Button>
+              <Button variant="outline" size="lg">
+                Узнать больше
+              </Button>
             </div>
           </div>
           
-          <div className="md:w-1/2 animate-float">
-            <img 
-              src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=600&h=600&fit=crop" 
-              alt="Оздоровительный тренажер" 
-              className="rounded-xl shadow-xl max-w-full mx-auto" 
-            />
+          <div className="w-full md:w-1/2 relative">
+            <div className="relative rounded-xl overflow-hidden shadow-2xl border-8 border-white">
+              <img 
+                src="https://cdn.poehali.dev/files/22371927-aa4a-4d04-851b-1040191836ba.png" 
+                alt="Тренажер Ось Жизни" 
+                className="w-full h-auto object-cover"
+              />
+            </div>
+            
+            <div className="absolute -right-12 -bottom-6 -rotate-12 bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-lg border border-primary/20 max-w-[200px]">
+              <p className="text-sm font-bold text-primary">
+                Рост новой костной ткани уже после 3 занятий
+              </p>
+            </div>
           </div>
         </div>
       </div>
+      
+      <div className="absolute -bottom-12 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent"></div>
     </section>
   );
 };

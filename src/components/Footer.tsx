@@ -1,91 +1,67 @@
-import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
+
+import { Button } from "@/components/ui/button";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white pt-16 pb-8">
+    <footer className="bg-primary/5 py-12">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          <div>
-            <h3 className="text-xl font-bold mb-4">ФитЗдрав</h3>
-            <p className="text-gray-400 mb-4">
-              Оздоровительные тренажеры и программы для всей семьи, разработанные с заботой о вашем здоровье.
-            </p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Facebook size={20} />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Instagram size={20} />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Twitter size={20} />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Youtube size={20} />
-              </a>
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between gap-8">
+            <div className="md:w-1/3">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="text-2xl font-bold text-primary">Ось Жизни</span>
+              </div>
+              <p className="text-muted-foreground mb-6">
+                Революционная методика оздоровления суставов и костей с научно доказанной эффективностью
+              </p>
+              <div className="flex gap-4">
+                <Button variant="outline" size="icon" className="rounded-full">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                </Button>
+                <Button variant="outline" size="icon" className="rounded-full">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                </Button>
+                <Button variant="outline" size="icon" className="rounded-full">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 4.01v16.97a.997.997 0 0 1-1 1H3a.997.997 0 0 1-1-1V4.01c0-.55.45-1 1-1h18c.55 0 1 .45 1 1ZM22 4L12 13 2 4"/></svg>
+                </Button>
+                <Button variant="outline" size="icon" className="rounded-full">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </Button>
+              </div>
+            </div>
+            
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Навигация</h3>
+              <ul className="space-y-2">
+                <li><a href="#problems" className="text-muted-foreground hover:text-primary transition-colors">Проблемы</a></li>
+                <li><a href="#method" className="text-muted-foreground hover:text-primary transition-colors">Методика</a></li>
+                <li><a href="#programs" className="text-muted-foreground hover:text-primary transition-colors">Программы</a></li>
+                <li><a href="#reviews" className="text-muted-foreground hover:text-primary transition-colors">Отзывы</a></li>
+                <li><a href="#pricing" className="text-muted-foreground hover:text-primary transition-colors">Цены</a></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Контакты</h3>
+              <ul className="space-y-2">
+                <li className="text-muted-foreground">г. Санкт-Петербург, ул. Примерная, д. 123</li>
+                <li className="text-muted-foreground">+7 (999) 123-45-67</li>
+                <li className="text-muted-foreground">info@oszhizni.ru</li>
+                <li className="text-muted-foreground">Ежедневно: 9:00 - 21:00</li>
+              </ul>
             </div>
           </div>
           
-          <div>
-            <h3 className="text-lg font-bold mb-4">Ссылки</h3>
-            <ul className="space-y-2">
-              <li>
-                <a href="#about" className="text-gray-400 hover:text-white transition-colors">О тренажере</a>
-              </li>
-              <li>
-                <a href="#benefits" className="text-gray-400 hover:text-white transition-colors">Преимущества</a>
-              </li>
-              <li>
-                <a href="#programs" className="text-gray-400 hover:text-white transition-colors">Программы</a>
-              </li>
-              <li>
-                <a href="#pricing" className="text-gray-400 hover:text-white transition-colors">Цены</a>
-              </li>
-              <li>
-                <a href="#reviews" className="text-gray-400 hover:text-white transition-colors">Отзывы</a>
-              </li>
-              <li>
-                <a href="#contact" className="text-gray-400 hover:text-white transition-colors">Контакты</a>
-              </li>
-            </ul>
-          </div>
-          
-          <div>
-            <h3 className="text-lg font-bold mb-4">Поддержка</h3>
-            <ul className="space-y-2">
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">FAQ</a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">Сервисное обслуживание</a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">Гарантия</a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">Доставка и оплата</a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">Возврат</a>
-              </li>
-            </ul>
-          </div>
-          
-          <div>
-            <h3 className="text-lg font-bold mb-4">Контакты</h3>
-            <address className="text-gray-400 not-italic space-y-2">
-              <p>г. Москва, ул. Примерная, д. 123</p>
-              <p>Телефон: +7 (800) 123-45-67</p>
-              <p>Email: info@fitzdrav.ru</p>
-            </address>
-          </div>
-        </div>
-        
-        <div className="pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
-          <p>&copy; {new Date().getFullYear()} ФитЗдрав. Все права защищены.</p>
-          <div className="mt-2 space-x-4">
-            <a href="#" className="hover:text-gray-400 transition-colors">Политика конфиденциальности</a>
-            <a href="#" className="hover:text-gray-400 transition-colors">Условия использования</a>
+          <div className="mt-12 pt-6 border-t border-primary/10">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+              <p className="text-sm text-muted-foreground">
+                © {new Date().getFullYear()} Ось Жизни. Все права защищены.
+              </p>
+              <div className="flex gap-4">
+                <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">Политика конфиденциальности</a>
+                <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">Условия использования</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>

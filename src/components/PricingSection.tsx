@@ -1,124 +1,167 @@
+
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Check } from "lucide-react";
-
-interface PricingPlanProps {
-  title: string;
-  price: string;
-  description: string;
-  features: string[];
-  popular?: boolean;
-}
-
-const PricingPlan = ({ title, price, description, features, popular }: PricingPlanProps) => {
-  return (
-    <Card className={`flex flex-col h-full ${popular ? "border-primary border-2 shadow-lg" : ""}`}>
-      {popular && (
-        <div className="bg-primary text-primary-foreground text-center py-1 text-sm font-medium">
-          Популярный выбор
-        </div>
-      )}
-      <CardHeader>
-        <CardTitle className="text-xl">{title}</CardTitle>
-        <CardDescription>{description}</CardDescription>
-      </CardHeader>
-      <CardContent className="flex-grow">
-        <div className="mb-6">
-          <span className="text-3xl font-bold">{price}</span>
-          <span className="text-muted-foreground"> ₽</span>
-        </div>
-        <ul className="space-y-2 mb-6">
-          {features.map((feature, index) => (
-            <li key={index} className="flex items-start gap-2">
-              <Check size={18} className="text-primary mt-0.5 flex-shrink-0" />
-              <span className="text-sm">{feature}</span>
-            </li>
-          ))}
-        </ul>
-      </CardContent>
-      <CardFooter>
-        <Button 
-          className={`w-full ${popular ? "" : "variant-outline"}`}
-          variant={popular ? "default" : "outline"}
-        >
-          Выбрать
-        </Button>
-      </CardFooter>
-    </Card>
-  );
-};
+import { CheckCircle } from "lucide-react";
 
 const PricingSection = () => {
-  const plans = [
+  const packages = [
     {
-      title: "Тренажер Базовый",
-      price: "12 990",
-      description: "Для домашних тренировок",
+      title: "Тренажер для личного пользования",
+      price: "350 000 ₽",
       features: [
-        "Базовая комплектация тренажера",
-        "Инструкция по сборке и использованию",
-        "10 базовых упражнений",
-        "Доставка по России"
-      ]
+        "Собственный тренажер «Ось Жизни»",
+        "Инструкция по использованию",
+        "Базовые упражнения",
+        "Гарантия на тренажер",
+      ],
+      cta: "Оставить заявку",
+      popular: false,
     },
     {
-      title: "Тренажер + Обучение",
-      price: "17 990",
-      description: "Полный комплект для оздоровления",
+      title: "Тренажер и обучение для мастеров",
+      price: "650 000 ₽",
+      features: [
+        "Тренажер «Ось Жизни»",
+        "Полное обучение методике АФГ",
+        "Сертификация мастера",
+        "Обучение оздоровительным программам",
+        "Консультации по применению методики",
+      ],
+      cta: "Стать мастером",
       popular: true,
-      features: [
-        "Полная комплектация тренажера",
-        "Видеокурс из 30 упражнений",
-        "3 месяца доступа к онлайн-платформе",
-        "Консультация с тренером",
-        "Доставка по России"
-      ]
     },
     {
-      title: "Премиум пакет",
-      price: "24 990",
-      description: "Максимальный результат",
+      title: "Бизнес под ключ",
+      price: "1 300 000 ₽",
       features: [
-        "Расширенная комплектация тренажера",
-        "Полный видеокурс из 50+ упражнений",
-        "6 месяцев доступа к онлайн-платформе",
-        "3 персональные онлайн-консультации",
-        "Индивидуальная программа тренировок",
-        "Экспресс-доставка по России"
-      ]
-    }
+        "Тренажер «Ось Жизни»",
+        "Обучение и сертификация",
+        "Бизнес-план и маркетинговая стратегия",
+        "Брендирование и материалы для продвижения",
+        "Поддержка в открытии центра",
+      ],
+      cta: "Открыть центр",
+      popular: false,
+    },
   ];
 
   return (
-    <section id="pricing" className="py-20">
+    <section className="py-20 bg-gradient-to-b from-accent/10 to-background" id="pricing">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Выберите подходящий пакет</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Мы подготовили разные варианты комплектации, чтобы каждый мог подобрать оптимальное решение
-          </p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {plans.map((plan, index) => (
-            <PricingPlan 
-              key={index} 
-              title={plan.title} 
-              price={plan.price} 
-              description={plan.description} 
-              features={plan.features} 
-              popular={plan.popular} 
-            />
-          ))}
-        </div>
-        
-        <div className="mt-12 text-center">
-          <p className="text-sm text-gray-500 mb-4">
-            У вас остались вопросы? Свяжитесь с нами, и мы поможем подобрать оптимальное решение
-          </p>
-          <Button variant="outline" size="lg">
-            Получить консультацию
-          </Button>
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Инвестиции в здоровье</h2>
+            <p className="text-lg text-muted-foreground">Выберите подходящий для вас вариант</p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {packages.map((pkg, index) => (
+              <Card 
+                key={index} 
+                className={`border ${
+                  pkg.popular 
+                    ? "border-primary shadow-lg" 
+                    : "border-primary/20"
+                } relative`}
+              >
+                {pkg.popular && (
+                  <div className="absolute -top-4 left-0 right-0 flex justify-center">
+                    <span className="bg-primary text-primary-foreground text-sm font-medium py-1 px-3 rounded-full">
+                      Популярный выбор
+                    </span>
+                  </div>
+                )}
+                
+                <CardHeader>
+                  <CardTitle className="text-xl text-center">{pkg.title}</CardTitle>
+                </CardHeader>
+                
+                <CardContent>
+                  <div className="text-center">
+                    <p className="text-3xl font-bold">{pkg.price}</p>
+                  </div>
+                  
+                  <ul className="mt-6 space-y-3">
+                    {pkg.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-start gap-2">
+                        <CheckCircle className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                        <span className="text-sm">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+                
+                <CardFooter>
+                  <Button 
+                    className={`w-full ${pkg.popular ? "hover-scale" : ""}`}
+                    variant={pkg.popular ? "default" : "outline"}
+                  >
+                    {pkg.cta}
+                  </Button>
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
+
+          <div className="mt-16 bg-white p-8 rounded-xl shadow-xl border border-primary/20">
+            <h3 className="text-2xl font-bold mb-4 text-center">Сравнение с другими методами</h3>
+            <div className="overflow-x-auto">
+              <table className="min-w-full">
+                <thead>
+                  <tr className="border-b">
+                    <th className="text-left py-3 px-4">Метод</th>
+                    <th className="text-center py-3 px-4">Прирост плотности кости за год</th>
+                    <th className="text-center py-3 px-4">Побочные эффекты</th>
+                    <th className="text-center py-3 px-4">Доступность</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b">
+                    <td className="py-3 px-4">Кальций + вит. D</td>
+                    <td className="text-center py-3 px-4">0,5%</td>
+                    <td className="text-center py-3 px-4">Нет</td>
+                    <td className="text-center py-3 px-4">+</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="py-3 px-4">Ходьба/вибрация</td>
+                    <td className="text-center py-3 px-4">0%</td>
+                    <td className="text-center py-3 px-4">Нет</td>
+                    <td className="text-center py-3 px-4">+</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="py-3 px-4">Физнагрузка с весом</td>
+                    <td className="text-center py-3 px-4">1%</td>
+                    <td className="text-center py-3 px-4">Нет</td>
+                    <td className="text-center py-3 px-4">+</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="py-3 px-4">Бисфосфонаты</td>
+                    <td className="text-center py-3 px-4">1,6%</td>
+                    <td className="text-center py-3 px-4">Есть</td>
+                    <td className="text-center py-3 px-4">-</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="py-3 px-4">Анаболики</td>
+                    <td className="text-center py-3 px-4">6,1%</td>
+                    <td className="text-center py-3 px-4">Есть (риск рака)</td>
+                    <td className="text-center py-3 px-4">-</td>
+                  </tr>
+                  <tr className="border-b bg-primary/10 font-semibold">
+                    <td className="py-3 px-4">Функциональная гимнастика</td>
+                    <td className="text-center py-3 px-4">7,3–14%</td>
+                    <td className="text-center py-3 px-4">Нет</td>
+                    <td className="text-center py-3 px-4">+++++</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     </section>
